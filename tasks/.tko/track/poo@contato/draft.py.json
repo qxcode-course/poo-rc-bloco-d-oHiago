@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-26_15-18-18",
+            "content": "class Fone:\n    def __init__(self, id:int):\n        self.__id: int\n        self.__number: str\n\n    def getId(self):\n        return self.__id\n    def getNumber(self):\n        return self.__number\n    \n    def __str__(self):\n        return f\"{self.__id} {self.__number}\"\n\nclass Contact:\n    def __init__(self,name:str):\n        self.name = name\n        self.fones: list [Fone] = []\n        self.favorited = True\n\n",
+            "lines": "19"
+        }
+    ]
+}
