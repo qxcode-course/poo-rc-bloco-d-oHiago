@@ -72,8 +72,33 @@
         },
         {
             "label": "2025-11-27_11-20-44",
-            "content": "class Fone:\n    def __init__(self, label: str, number: str):\n        self.label = label\n        self.number = number\n\n    def __str__(self):\n        return f\"{self.label} {self.__number}\"\n\nclass Contact:\n    def __init__(self,name:str):\n        self.name = name\n        self.fones: list [Fone] = []\n        self.favorited = True\n\n    def addFone(self, fone: Fone):\n        self.fones.append(fone)\n\n    def remove(self, index: int):\n        if index < 0 or index > len(self.fones):\n            print(\"index invalido\")\n        \n        else:\n            self.fones.pop(index)\n    def validar(self):\n        pass\n\n    def __str__(self):\n        lista = \", \".join([str(fone) for fone in self.fones])\n        return f\"- {self.name} [{lista}]\"\n        \n\ndef main():\n    contato = Contact(0)\n\n    while True:\n        line = input()\n        print(\"$\" + line)\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(contato)\n        if args[0] == \"init\":\n            contato = Contact (str(args[1]))\n        if args[0] == \"add\":\n            contato.addFone(args[1])\n\n\nif __name__ == \"__main__\":   \n    main()\n",
+            "content": "@@ -166,24 +166,26 @@\n abel%7D %7Bself.\n+__\n number%7D%22%0A%0Acl\n",
             "lines": "51"
+        },
+        {
+            "label": "2025-11-27_11-23-35",
+            "content": "@@ -1083,50 +1083,8 @@\n d%22:%0A\n-            fone = Fone(args%5B1%5D, args%5B2%5D)%0A\n     \n@@ -1107,20 +1107,23 @@\n addFone(\n-fone\n+args%5B1%5D\n )%0A%0A%0Aif _\n",
+            "lines": "51"
+        },
+        {
+            "label": "2025-11-27_11-31-48",
+            "content": "@@ -163,17 +163,17 @@\n f.label%7D\n-:\n+ \n %7Bself.nu\n",
+            "lines": "52"
+        },
+        {
+            "label": "2025-11-27_11-32-04",
+            "content": "@@ -1159,72 +1159,8 @@\n ne)%0A\n-        if args%5B0%5D == %22rm%22:%0A            contato.remove(args%5B1%5D)%0A\n %0A%0Aif\n",
+            "lines": "52"
+        },
+        {
+            "label": "2025-11-27_11-33-22",
+            "content": "@@ -1214,20 +1214,16 @@\n ove(\n-int(\n args%5B1%5D)\n )%0A%0A%0A\n@@ -1218,17 +1218,16 @@\n args%5B1%5D)\n-)\n %0A%0A%0Aif __\n",
+            "lines": "54"
+        },
+        {
+            "label": "2025-11-27_11-33-48",
+            "content": "class Fone:\n    def __init__(self, label: str, number: str):\n        self.label = label\n        self.number = number\n\n    def __str__(self):\n        return f\"{self.label}:{self.number}\"\n\nclass Contact:\n    def __init__(self,name:str):\n        self.name = name\n        self.fones: list [Fone] = []\n        self.favorited = True\n\n    def addFone(self, fone: Fone):\n        self.fones.append(fone)\n\n    def remove(self, index: int):\n        if index < 0 or index > len(self.fones):\n            print(\"index invalido\")\n        \n        else:\n            self.fones.pop(index)\n    def validar(self):\n        pass\n\n    def __str__(self):\n        lista = \", \".join([str(fone) for fone in self.fones])\n        return f\"- {self.name} [{lista}]\"\n        \n\ndef main():\n    contato = Contact(0)\n\n    while True:\n        line = input()\n        print(\"$\" + line)\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(contato)\n        if args[0] == \"init\":\n            contato = Contact (str(args[1]))\n        if args[0] == \"add\":\n            fone = Fone(args[1], args[2])\n            contato.addFone(fone)\n        if args[0] == \"rm\":\n            contato.remove(int(args[1]))\n\n\nif __name__ == \"__main__\":   \n    main()\n",
+            "lines": "54"
         }
     ]
 }

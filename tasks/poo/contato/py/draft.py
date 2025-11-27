@@ -4,7 +4,7 @@ class Fone:
         self.number = number
 
     def __str__(self):
-        return f"{self.label} {self.__number}"
+        return f"{self.label}:{self.number}"
 
 class Contact:
     def __init__(self,name:str):
@@ -44,7 +44,10 @@ def main():
         if args[0] == "init":
             contato = Contact (str(args[1]))
         if args[0] == "add":
-            contato.addFone(args[1])
+            fone = Fone(args[1], args[2])
+            contato.addFone(fone)
+        if args[0] == "rm":
+            contato.remove(int(args[1]))
 
 
 if __name__ == "__main__":   
