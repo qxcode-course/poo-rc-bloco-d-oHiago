@@ -2,8 +2,78 @@
     "patches": [
         {
             "label": "2025-11-26_15-18-18",
-            "content": "class Fone:\n    def __init__(self, id:int):\n        self.__id: int\n        self.__number: str\n\n    def getId(self):\n        return self.__id\n    def getNumber(self):\n        return self.__number\n    \n    def __str__(self):\n        return f\"{self.__id} {self.__number}\"\n\nclass Contact:\n    def __init__(self,name:str):\n        self.name = name\n        self.fones: list [Fone] = []\n        self.favorited = True\n\n",
+            "content": "@@ -408,607 +408,4 @@\n ue%0A%0A\n-    def addFone(self, fone: Fone):%0A        self.fones.append(fone)%0A%0A    def remove(self, index: int):%0A        if index %3C= 0 and index %3E len(self.fones):%0A            print(%22index invalido%22)%0A        %0A        else:%0A            self.fones.pop(index)%0A    def validar(self):%0A        %0A%0A%0Adef main():%0A    contato = Contact()%0A%0A    while True:%0A        line = input()%0A        print(%22$%22 + line)%0A        args = line.split()%0A%0A        if args%5B0%5D == %22end%22:%0A            break%0A        if args%5B0%5D == %22show%22:%0A            print(contato)%0A        if args%5B0%5D == %22init%22:%0A            contato = Contact (int(args%5B1%5D))%0A%0A    %0Amain()%0A\n",
             "lines": "19"
+        },
+        {
+            "label": "2025-11-26_16-42-09",
+            "content": "@@ -528,13 +528,15 @@\n ex %3C\n+=\n  0 \n-or\n+and\n  ind\n@@ -683,16 +683,17 @@\n       %0A%0A\n+%0A\n def main\n@@ -999,42 +999,13 @@\n ))%0A%0A\n-if __name__ == %22__main__%22:   %0A\n     \n+%0A\n main\n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-26_16-46-29",
+            "content": "@@ -32,60 +32,138 @@\n lf, \n-label: str, number: str):%0A        self.label = label\n+id:int):%0A        self.__id: int%0A        self.__number: str%0A%0A    def getId(self):%0A        return self.__id%0A    def getNumber(self):\n %0A   \n@@ -171,29 +171,33 @@\n     \n+return \n self.\n+__\n number\n- = number%0A\n+%0A    \n %0A   \n@@ -243,13 +243,12 @@\n elf.\n-label\n+__id\n %7D %7Bs\n@@ -675,151 +675,8 @@\n f):%0A\n-        pass%0A%0A    def __str__(self):%0A       %0A        lista = %22,%22.join(%5Bstr(fone) for fone in self.fones%5D)%0A        return f%22%7Bself.name%7D%7Blista%7D%22%0A\n     \n",
+            "lines": "48"
+        },
+        {
+            "label": "2025-11-26_17-11-05",
+            "content": "@@ -619,32 +619,40 @@\n  __str__(self):%0A\n+       %0A\n         lista = \n@@ -777,17 +777,16 @@\n Contact(\n-0\n )%0A%0A    w\n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-26_17-33-00",
+            "content": "@@ -1032,19 +1032,19 @@\n ontact (\n-str\n+int\n (args%5B1%5D\n@@ -1047,17 +1047,16 @@\n s%5B1%5D))%0A%0A\n-%0A\n if __nam\n",
+            "lines": "48"
+        },
+        {
+            "label": "2025-11-26_17-34-40",
+            "content": "@@ -720,15 +720,15 @@\n ame%7D\n-%5B\n+%7B\n lista\n-%5D\n+%7D\n %22%0A  \n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-26_17-35-18",
+            "content": "@@ -720,17 +720,15 @@\n ame%7D\n-%7B\n %5Blista%5D\n-%7D\n %22%0A  \n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-26_17-35-28",
+            "content": "@@ -727,37 +727,8 @@\n ista\n- if lista is not None else %5B%5D\n %5D%7D%22%0A\n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-26_17-38-10",
+            "content": "@@ -1,128 +1,315 @@\n-class Fone:\n+@@ -1,12 +1,34 @@%0A+@@ -1,1099 +1,142 @@%250A-%0A class Fone:%250A%0A@@ -26,17 +26,19 @@%0A ss Fone:%0A-%250A%0A+%25250A\n %0A    \n+ \n def \n-__init__(self, label: str, number: str):%0A        self.label = label%0A        self.number = number%0A%0A    de\n+%0A@@ -73,25 +73,27 @@%0A umber: str):%0A-%250A%0A+%25250A%0A         self%0A@@ -106,17 +106,19 @@%0A  = label%0A-%250A%0A+%25250A%0A         %0A@@ -137,18 +137,22 @@%0A = number%0A-%250A%250A%0A+%25250A%25250A%0A     def %0A@@ -157,33 +157,35 @@%0A \n f __\n@@ -313,32 +313,45 @@\n  __str__(self):%0A\n+-%250A%0A+%25250A%0A \n         return f\n@@ -354,946 +354,2973 @@\n rn f\n-%22%7Bself.label%7D %7Bself.__number%7D%22%0A%0Aclass Contact:%0A    def __init__(self,name:str):%0A        self.name = name%0A        self.fones: list %5BFone%5D = %5B%5D%0A        self.favorited = True%0A%0A    def addFone(self, fone: Fone):%0A        self.fones.append(fone)%0A%0A    def remove(self, index: int):%0A        if index %3C 0 or index %3E len(self.fones):%0A            print(%22index invalido%22)%0A        %0A        else:%0A            self.fones.pop(index)\n+%0A@@ -180,26 +180,30 @@%0A     return f%0A-%2522%257B%0A+%252522%25257B%0A self.label%257D %0A@@ -204,11 +204,15 @@%0A abel%0A-%257D %257B%0A+%25257D %25257B%0A self%0A@@ -224,12 +224,20 @@%0A mber%0A-%257D%2522%250A%250A%0A+%25257D%252522%25250A%25250A%0A clas%0A@@ -246,17 +246,19 @@%0A Contact:%0A-%250A%0A+%25250A%0A     def %0A@@ -281,17 +281,19 @@%0A me:str):%0A-%250A%0A+%25250A%0A         %0A@@ -308,17 +308,19 @@%0A e = name%0A-%250A%0A+%25250A%0A         %0A@@ -340,20 +340,30 @@%0A ist %0A-%255B%0A+%25255B%0A Fone%0A-%255D = %255B%255D%250A%0A+%25255D = %25255B%25255D%25250A%0A     %0A@@ -387,18 +387,22 @@%0A d = True%0A-%250A%250A%0A+%25250A%25250A%0A     def %0A@@ -427,17 +427,19 @@%0A : Fone):%0A-%250A%0A+%25250A%0A         %0A@@ -461,18 +461,22 @@%0A nd(fone)%0A-%250A%250A%0A+%25250A%25250A%0A     def %0A@@ -500,17 +500,19 @@%0A x: int):%0A-%250A%0A+%25250A%0A         %0A@@ -524,9 +524,11 @@%0A dex %0A-%253C%0A+%25253C%0A  0 o%0A@@ -539,9 +539,11 @@%0A dex %0A-%253E%0A+%25253E%0A  len%0A@@ -555,17 +555,19 @@%0A .fones):%0A-%250A%0A+%25250A%0A         %0A@@ -576,17 +576,19 @@%0A   print(%0A-%2522%0A+%252522%0A index in%0A@@ -597,19 +597,23 @@%0A lido%0A-%2522)%250A%0A+%252522)%25250A%0A         %0A %250A   %0A@@ -608,17 +608,19 @@%0A         %0A-%250A%0A+%25250A%0A         %0A@@ -624,17 +624,19 @@%0A    else:%0A-%250A%0A+%25250A%0A         %0A@@ -660,17 +660,19 @@%0A p(index)%0A-%250A%0A+%25250A\n %0A    \n+ \n def \n-validar(self):%0A        pass%0A%0A    def __str__(self):%0A        lista = %22, %22.join(%5Bstr(fone) for fone in self.fones%5D)%0A        return f%22%7Bself.name%7D%7B%5Blista%5D%7D%22%0A        %0A%0Adef main():%0A    contato = Contact(0)%0A%0A    while True:%0A        line = input()%0A        print(%22$%22 + line)%0A        args = line.split()%0A%0A        if args%5B0%5D == %22end%22:%0A            break%0A        if args%5B0%5D == %22show%22:%0A            print(contato)%0A        if args%5B0%5D == %22init%22:%0A            contato = Contact (str(args%5B1%5D))%0A%0A%0Aif __name__ == %22__main__%22:   %0A    main()\n+%0A@@ -681,25 +681,27 @@%0A lidar(self):%0A-%250A%0A+%25250A%0A         pass%0A@@ -700,18 +700,22 @@%0A     pass%0A-%250A%250A%0A+%25250A%25250A%0A     def %0A@@ -728,17 +728,19 @@%0A _(self):%0A-%250A%0A+%25250A%0A         %0A@@ -751,19 +751,25 @@%0A a = %0A-%2522, %2522%0A+%252522, %252522%0A .join(%0A-%255B%0A+%25255B%0A str(%0A@@ -800,11 +800,15 @@%0A ones%0A-%255D)%250A%0A+%25255D)%25250A%0A     %0A@@ -823,10 +823,14 @@%0A rn f%0A-%2522%257B%0A+%252522%25257B%0A self%0A@@ -838,28 +838,42 @@%0A name%0A-%257D%257B%255Blista%255D%257D%2522%250A%0A+%25257D%25257B%25255Blista%25255D%25257D%252522%25250A%0A         %0A %250A%250Ade%0A@@ -868,18 +868,22 @@%0A         %0A-%250A%250A%0A+%25250A%25250A%0A def main%0A@@ -885,17 +885,19 @@%0A  main():%0A-%250A%0A+%25250A%0A     cont%0A@@ -912,18 +912,22 @@%0A ntact(0)%0A-%250A%250A%0A+%25250A%25250A%0A     whil%0A@@ -933,17 +933,19 @@%0A le True:%0A-%250A%0A+%25250A%0A         %0A@@ -958,17 +958,19 @@%0A  input()%0A-%250A%0A+%25250A%0A         %0A@@ -979,19 +979,23 @@%0A int(%0A-%2522$%2522%0A+%252522$%252522%0A  + line)%0A %250A   %0A@@ -990,17 +990,19 @@%0A  + line)%0A-%250A%0A+%25250A%0A         %0A@@ -1020,18 +1020,22 @@%0A .split()%0A-%250A%250A%0A+%25250A%25250A%0A         %0A@@ -1045,22 +1045,32 @@%0A args%0A-%255B0%255D == %2522end%2522:%250A%0A+%25255B0%25255D == %252522end%252522:%25250A%0A     %0A@@ -1082,17 +1082,19 @@%0A    break%0A-%250A%0A+%25250A%0A         %0A@@ -1104,23 +1104,33 @@%0A args%0A-%255B0%255D%0A+%25255B0%25255D%0A  == %0A-%2522%0A+%252522%0A show%0A-%2522:%250A%0A+%252522:%25250A%0A     %0A@@ -1151,17 +1151,19 @@%0A contato)%0A-%250A%0A+%25250A%0A         %0A@@ -1173,23 +1173,33 @@%0A args%0A-%255B0%255D%0A+%25255B0%25255D%0A  == %0A-%2522%0A+%252522%0A init%0A-%2522:%250A%0A+%252522:%25250A%0A     %0A@@ -1237,16 +1237,26 @@%0A args%0A-%255B1%255D))%250A%250A%250A%0A+%25255B1%25255D))%25250A%25250A%25250A%0A if _%0A@@ -1270,17 +1270,19 @@%0A  == %0A-%2522%0A+%252522%0A __main__%0A %2522:  %0A@@ -1281,14 +1281,18 @@%0A in__%0A-%2522%0A+%252522%0A :   %0A-%250A%0A+%25250A%0A     %0A@@ -1298,8 +1298,194 @@%0A  main()%250A%0A++@@ -645,17 +645,16 @@%25250A sta = %25252522,%25250A- %25250A %25252522.join(%2525255B%25250A@@ -723,16 +723,45 @@%25250A %2525257D%2525257B%2525255Blista%25250A+ if lista is not None else %2525255B%2525255D%25250A %2525255D%2525257D%25252522%2525250A    %250A %25250A%250A\n %0A\n",
+            "lines": "266"
+        },
+        {
+            "label": "2025-11-26_17-41-11",
+            "content": "@@ -721,18 +721,17 @@\n ame%7D\n-%5B\n %7B\n+%5B\n lista\n+%5D\n %7D\n-%5D%22\n %22%0A  \n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-26_17-42-56",
+            "content": "@@ -727,16 +727,17 @@\n lista%7D%5D%22\n+%22\n %0A       \n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-26_17-43-04",
+            "content": "@@ -717,17 +717,16 @@\n lf.name%7D\n- \n %5B%7Blista%7D\n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-26_17-43-12",
+            "content": "@@ -710,10 +710,8 @@\n n f%22\n-- \n %7Bsel\n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-26_17-43-28",
+            "content": "@@ -1056,74 +1056,8 @@\n %5D))%0A\n-        if args%5B0%5D == %22add%22:%0A            contato.addFone(args%5B1%5D)%0A\n %0A%0Aif\n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-27_11-20-44",
+            "content": "class Fone:\n    def __init__(self, label: str, number: str):\n        self.label = label\n        self.number = number\n\n    def __str__(self):\n        return f\"{self.label} {self.__number}\"\n\nclass Contact:\n    def __init__(self,name:str):\n        self.name = name\n        self.fones: list [Fone] = []\n        self.favorited = True\n\n    def addFone(self, fone: Fone):\n        self.fones.append(fone)\n\n    def remove(self, index: int):\n        if index < 0 or index > len(self.fones):\n            print(\"index invalido\")\n        \n        else:\n            self.fones.pop(index)\n    def validar(self):\n        pass\n\n    def __str__(self):\n        lista = \", \".join([str(fone) for fone in self.fones])\n        return f\"- {self.name} [{lista}]\"\n        \n\ndef main():\n    contato = Contact(0)\n\n    while True:\n        line = input()\n        print(\"$\" + line)\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(contato)\n        if args[0] == \"init\":\n            contato = Contact (str(args[1]))\n        if args[0] == \"add\":\n            contato.addFone(args[1])\n\n\nif __name__ == \"__main__\":   \n    main()\n",
+            "lines": "51"
         }
     ]
 }

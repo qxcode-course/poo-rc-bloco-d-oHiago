@@ -1,0 +1,4 @@
+2025-11-27 11:18:53, MOVE, v:1, k:poo@contato, mode:PICK
+2025-11-27 11:18:55, EXEC, v:1, k:poo@contato, mode:FULL, rate:20
+2025-11-27 11:20:44, EXEC, v:1, k:poo@contato, mode:FULL, rate:20, size:51
+2025-11-27 11:22:11, MOVE, v:1, k:poo@contato, mode:BACK
