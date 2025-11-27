@@ -21,8 +21,15 @@ class Contact:
         
         else:
             self.fones.pop(index)
-    def validar(self):
-        pass
+    def validar(self, fone: Fone) -> bool:
+        validos = "0123456789()."
+        for i in fone.number:
+            if i not in validos:
+                return False
+        return True
+        
+
+
 
     def __str__(self):
         lista = ", ".join([str(fone) for fone in self.fones])
@@ -30,7 +37,7 @@ class Contact:
         
 
 def main():
-    contato = Contact(0)
+    contato = Contact("")
 
     while True:
         line = input()
@@ -45,7 +52,10 @@ def main():
             contato = Contact (str(args[1]))
         if args[0] == "add":
             fone = Fone(args[1], args[2])
-            contato.addFone(fone)
+            if contato.validar(fone):
+                contato.addFone(fone)
+            else:
+                print("fail: invalid number")
         if args[0] == "rm":
             contato.remove(int(args[1]))
 
