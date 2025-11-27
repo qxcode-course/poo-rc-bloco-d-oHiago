@@ -10,7 +10,7 @@ class Contact:
     def __init__(self,name:str):
         self.name = name
         self.fones: list [Fone] = []
-        self.favorited = True
+        self.favorited = False
 
     def addFone(self, fone: Fone):
         self.fones.append(fone)
@@ -28,12 +28,16 @@ class Contact:
                 return False
         return True
         
-
+    def Favorito(self):
+        self.favorited = True
+    def naoFavorito(self):
+        self.favorited = False
 
 
     def __str__(self):
+        fav = '@' if self.favorited else '-'
         lista = ", ".join([str(fone) for fone in self.fones])
-        return f"- {self.name} [{lista}]"
+        return f"{fav} {self.name} [{lista}]"
         
 
 def main():
@@ -43,21 +47,30 @@ def main():
         line = input()
         print("$" + line)
         args = line.split()
+        try:
 
-        if args[0] == "end":
-            break
-        if args[0] == "show":
-            print(contato)
-        if args[0] == "init":
-            contato = Contact (str(args[1]))
-        if args[0] == "add":
-            fone = Fone(args[1], args[2])
-            if contato.validar(fone):
-                contato.addFone(fone)
+            if args[0] == "end":
+                break
+            elif args[0] == "show":
+                print(contato)
+            elif args[0] == "init":
+                contato = Contact (str(args[1]))
+            elif args[0] == "add":
+                fone = Fone(args[1], args[2])
+                if contato.validar(fone):
+                    contato.addFone(fone)
+                else:
+                 print("fail: invalid number")
+            elif args[0] == "rm":
+                contato.remove(int(args[1]))
+            
+            elif args[0] == "tfav":
+                contato.Favorito()
+
             else:
-                print("fail: invalid number")
-        if args[0] == "rm":
-            contato.remove(int(args[1]))
+                print("fail comando invalido")
+        except Exception as e:
+            print(e)
 
 
 if __name__ == "__main__":   
