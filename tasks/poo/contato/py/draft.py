@@ -29,9 +29,8 @@ class Contact:
         return True
         
     def Favorito(self):
-        self.favorited = True
-    def naoFavorito(self):
-        self.favorited = False
+        self.favorited = not self.favorited
+    
 
 
     def __str__(self):
