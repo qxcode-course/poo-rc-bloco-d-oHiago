@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-30_15-04-05",
+            "content": "@@ -1791,19 +1791,20 @@\n %5B0%5D == %22\n-add\n+init\n %22: %0A    \n@@ -1855,94 +1855,4 @@\n 1%5D))\n-%0A        except Exception as e:%0A            print(e)%0Aif __name__ == %22__main__%22:%0A    main()\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-11-30_15-05-35",
+            "content": "class Fone:\n    def __init__(self, label: str, number: str):\n        self.label = label\n        self.number = number\n\n    def __str__(self):\n        return f\"{self.label}:{self.number}\"\n\nclass Contact:\n    def __init__(self,name:str):\n        self.name = name\n        self.fones: list[Fone] = []\n        self.favorited = False\n\n    def addFone(self, fone: Fone):\n       self.fones.append(fone)\n\n    def remove(self, index: int):\n        if index < 0 or index > len(self.fones):\n            print(\"index invalido\")\n        \n        else:\n            self.fones.pop(index)\n    def validar(self, fone: Fone) -> bool:\n        validos = \"0123456789().\"\n        for i in fone.number:\n            if i not in validos:\n                return False\n        return True\n        \n    def Favorito(self):\n        self.favorited = not self.favorited\n    \n\n\n    def __str__(self):\n        fav = '@' if self.favorited else '-'\n        lista = \", \".join([str(fone) for fone in self.fones])\n        return f\"{fav} {self.name} [{lista}]\"\n        \nclass Agenda:\n    def __init__(self):\n        self.contato: dict[str, Contact] = {}\n\n    def add_contato(self, contato: Contact):\n        if contato.name in self.contato:\n            raise Exception (f\"Contato nome {contato.name} ja existe\")\n        self.contato[contato.name] = contato\n\n    def get_contato(self, nome:str):\n        try:\n            return self.contato[nome]\n        except KeyError as _:\n            raise Exception(f\"Contato nome {nome} nao existe\")\n        \ndef main():\n\n    agenda = Agenda()\n\n    while True:\n        line = input()\n        print(\"$\"+line)\n        args = line.split()\n        try:\n\n            if args[0] == \"end\":\n                break\n            elif args[0] == \"show\":\n                print(agenda)\n            elif args[0] == \"add\": \n                agenda.add_contato(Contact(args[1]))\n        except Exception as e:\n            print(e)\nif __name__ == \"__main__\":\n    main()",
+            "lines": "75"
+        }
+    ]
+}
