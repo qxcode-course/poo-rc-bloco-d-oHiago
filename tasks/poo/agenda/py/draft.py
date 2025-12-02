@@ -15,7 +15,7 @@ class Contact:
     def addFone(self, fone: Fone):
         self.fones.append(fone)
 
-    def remove(self, index: int):
+    def rmFone(self, index: int):
         if index < 0 or index >= len(self.fones):
             raise Exception ("fail: index invalido")
         self.fones.pop(index)
@@ -26,7 +26,7 @@ class Contact:
                 return False
         return True
         
-    def Favorito(self):
+    def favorito(self):
         self.favorited = not self.favorited
     
 
@@ -38,7 +38,7 @@ class Contact:
         
 class Agenda:
     def __init__(self):
-        self.contato: dict[Contact] = {}
+        self.contato: dict[str,Contact] = {}
 
     def add_contato(self,name, fones):
         if name not in self.contato:
@@ -50,7 +50,26 @@ class Agenda:
             return self.contato[nome]
          except KeyError as _:
             raise Exception(f"Contato nome {nome} nao existe")
-    
+    def rmFone(self, name, index):
+        if name not in self.contato:
+            raise Exception("fail: contato nao existe")
+        self.contato[name].rmFone(index)
+    def rmContato(self,name):
+        if name not in self.contato:
+            raise Exception("fail: contato nao existe")
+        del self.contato[name]
+    def search(self,busca):
+        resultado = []
+        for contato in self.contato.values():
+            texto = str(contato)
+            if busca in texto:
+                resultado.append(contato)
+        resultado = sorted(resultado,key = lambda c: c.name)
+        return resultado
+    def favoritar(self,name):
+        if name not in self.contato:
+            raise Exception("fail: esse contato nao existe")
+        self.contato[name].favorito()
         
     def __str__(self):
         lista = sorted(self.contato.values(), key = lambda c: c.name)
@@ -79,7 +98,21 @@ def main():
                        continue
                    label, number = token.split(":")
                    fone.append(Fone(label,number))
-               agenda.add_contato(name,fone)         
+               agenda.add_contato(name,fone) 
+            elif args[0] == "rmFone":
+                name = args[1]
+                index = int(args[2])
+                agenda.rmFone(name,index) 
+            elif args[0] == "rm":
+                name = args[1]
+                agenda.rmContato(name)  
+            elif args[0] == "search":
+                busca = args[1]
+                resultado = agenda.search(busca) 
+                for c in resultado:
+                    print(c)  
+            elif args[0] == "tfav":
+                agenda.favoritar(args[1])  
             else:
                 print("fail: comando invalido")
         except Exception as e:
