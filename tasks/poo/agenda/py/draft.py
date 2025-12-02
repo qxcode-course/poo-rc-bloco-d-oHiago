@@ -70,6 +70,9 @@ class Agenda:
         if name not in self.contato:
             raise Exception("fail: esse contato nao existe")
         self.contato[name].favorito()
+    def getFavorited(self):
+        favoritos =[c for c in self.contato.values() if c.favorited]
+        return favoritos
         
     def __str__(self):
         lista = sorted(self.contato.values(), key = lambda c: c.name)
@@ -112,7 +115,10 @@ def main():
                 for c in resultado:
                     print(c)  
             elif args[0] == "tfav":
-                agenda.favoritar(args[1])  
+                agenda.favoritar(args[1]) 
+            elif args[0] == "favs": 
+                for c in agenda.getFavorited():
+                    print(c)
             else:
                 print("fail: comando invalido")
         except Exception as e:
