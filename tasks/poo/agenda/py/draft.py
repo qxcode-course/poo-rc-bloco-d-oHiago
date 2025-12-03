@@ -39,7 +39,12 @@ class Contact:
 class Agenda:
     def __init__(self):
         self.contato: dict[str,Contact] = {}
-
+    def findoposbyname(self, name) -> int:
+        lista = sorted(self.contato.keys())
+        try:
+            return lista.index(name)
+        except ValueError:
+            return -1
     def add_contato(self,name, fones):
         if name not in self.contato:
           self.contato[name] = Contact(name)
@@ -110,7 +115,7 @@ def main():
                 name = args[1]
                 agenda.rmContato(name)  
             elif args[0] == "search":
-                busca = args[1]
+                busca = args[1] 
                 resultado = agenda.search(busca) 
                 for c in resultado:
                     print(c)  
